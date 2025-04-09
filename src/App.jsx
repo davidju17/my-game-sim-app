@@ -16,6 +16,7 @@ import './App.css'
 import Player from './components/Player';
 import GameBoard from './components/GameBoard';
 import Log from './components/Log';
+import { WINNING_COMBINATIONS } from './winning-combinations.js';
 
 
 function deriveActivePlayer(gameTurns) {
@@ -43,6 +44,21 @@ function App() {
       gameBoard[row][col] = player;
   }
 
+  let winner; 
+
+  for(const combinations of WINNING_COMBINATIONS)
+  {
+    const firstSquareSymbol = gameBoard[combinations[0].row][combinations[0].column];
+    const secondSquareSymbol = gameBoard[combinations[1].row][combinations[1].column];
+    const thirdSquareSymbol = gameBoard[combinations[2].row][combinations[2].column];
+
+    // cheking if all three squares are occupied by the same player
+    if(firstSquareSymbol && firstSquareSymbol === secondSquareSymbol && firstSquareSymbol === thirdSquareSymbol)
+    {
+      winner = firstSquareSymbol;
+    }
+  }
+
 
   function handleSelectSquare(rowIndex, colIndex) {
 
@@ -66,6 +82,7 @@ function App() {
             <Player initialName={PLAYERS.X} symbol='X' isActive={activePlayer === 'X'} />
             <Player initialName={PLAYERS.O} symbol='O' isActive={activePlayer === 'O'} />
           </ol>
+          {winner && <p> Winner: {winner}</p>}
           <GameBoard
             onSelectSquare={handleSelectSquare}
             board={gameBoard} />
