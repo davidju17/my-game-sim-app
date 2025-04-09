@@ -5,6 +5,13 @@ const PLAYERS = {
   O: 'Player 2'
 }
 
+const INITIAL_GAME_BOARD = [
+  [null, null, null],
+  [null, null, null],
+  [null, null, null],
+];
+
+
 import './App.css'
 import Player from './components/Player';
 import GameBoard from './components/GameBoard';
@@ -25,6 +32,17 @@ function App() {
 
   const [gameTurns, setGameTurns] = useState([]);
   const activePlayer = deriveActivePlayer(gameTurns);
+
+  let gameBoard = INITIAL_GAME_BOARD;
+
+  // derive state from gameTurns 
+  for (const turn of gameTurns) {
+      const { square, player } = turn;
+      const { row, col } = square;
+
+      gameBoard[row][col] = player;
+  }
+
 
   function handleSelectSquare(rowIndex, colIndex) {
 
@@ -50,7 +68,7 @@ function App() {
           </ol>
           <GameBoard
             onSelectSquare={handleSelectSquare}
-            turns={gameTurns} />
+            board={gameBoard} />
         </div>
         <Log turns={gameTurns} />
       </main>
