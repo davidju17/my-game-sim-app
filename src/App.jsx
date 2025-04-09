@@ -7,6 +7,7 @@ const PLAYERS = {
 
 import './App.css'
 import Player from './components/Player';
+import GameBoard from './components/GameBoard';
 
 function App() {
 
@@ -18,7 +19,7 @@ function App() {
             <Player initialName={PLAYERS.X} symbol='X' />
             <Player initialName={PLAYERS.O} symbol='O' />
           </ol>
-          GAME BOARD
+          <GameBoard />
         </div>
       </main>
     </>
