@@ -8,6 +8,7 @@ const PLAYERS = {
 import './App.css'
 import Player from './components/Player';
 import GameBoard from './components/GameBoard';
+import Log from './components/Log';
 
 function App() {
 
@@ -44,6 +45,7 @@ function App() {
             onSelectSquare={handleSelectSquare}
             turns={gameTurns} />
         </div>
+        <Log turns={gameTurns} />
       </main>
     </>
   )
