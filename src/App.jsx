@@ -6,27 +6,21 @@ const PLAYERS = {
 }
 
 import './App.css'
+import Player from './components/Player';
 
 function App() {
 
   return (
     <>
-    <main>
-      <div id='game-container'>
+      <main>
+        <div id='game-container'>
           <ol id='players'>
-          <li>
-            {/* for styling reasons use span */}
-            <span className='player-name'>{PLAYERS.X}</span>
-            <span className='player-symbol'>X</span>
-          </li>
-          <li>
-            <span className='player-name'>{PLAYERS.O}</span>
-            <span className='player-symbol'>O</span>
-          </li>
-        </ol>
-        GAME BOARD
-      </div>
-    </main>
+            <Player name={PLAYERS.X} symbol='X' />
+            <Player name={PLAYERS.O} symbol='O' />
+          </ol>
+          GAME BOARD
+        </div>
+      </main>
     </>
   )
 }
