@@ -1,12 +1,15 @@
-# React + Vite
+# Tic Tac Toe Game in React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the famous tic tac toe game. 
 
-Currently, two official plugins are available:
+# Rules
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Tic-tac-toe is a two-player game played on a 3x3 grid where players, taking turns, mark spaces with "X" or "O" and the first to get three in a row (horizontally, vertically, or diagonally) wins. 
 
-## Expanding the ESLint configuration
+# App Fuctionality 
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Before to play Edit the players name if you want
+- Then take turns to mark the spaces
+
+The first player to get three of their marks in a row wins the game. If the nine squares are filled and no player has three in a row, the ends in  a tie. Play as many times as you want.
+
