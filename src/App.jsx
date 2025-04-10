@@ -35,7 +35,7 @@ function App() {
   const [gameTurns, setGameTurns] = useState([]);
   const activePlayer = deriveActivePlayer(gameTurns);
 
-  let gameBoard = INITIAL_GAME_BOARD;
+  let gameBoard = [...INITIAL_GAME_BOARD.map(row => [...row])]; // deep copy of the initial game board
 
   // derive state from gameTurns 
   for (const turn of gameTurns) {
