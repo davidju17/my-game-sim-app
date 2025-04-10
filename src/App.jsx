@@ -30,21 +30,7 @@ function deriveActivePlayer(gameTurns) {
   return currentPlayer;
 }
 
-function App() {
-
-  const [players, setPlayers] = useState({ PLAYERS })
-  const [gameTurns, setGameTurns] = useState([]);
-  const activePlayer = deriveActivePlayer(gameTurns);
-
-  let gameBoard = [...INITIAL_GAME_BOARD.map(row => [...row])]; // deep copy of the initial game board
-
-  // derive state from gameTurns 
-  for (const turn of gameTurns) {
-    const { square, player } = turn;
-    const { row, col } = square;
-
-    gameBoard[row][col] = player;
-  }
+function deriveWinner(gameBoard, players) {
 
   let winner;
 
@@ -58,9 +44,33 @@ function App() {
       winner = players[firstSquareSymbol];
     }
   }
+  return winner;
+}
+
+function deriveGameBoard(gameTurns) {
+  
+  let gameBoard = [...INITIAL_GAME_BOARD.map(row => [...row])]; // deep copy of the initial game board
+
+  // derive state from gameTurns 
+  for (const turn of gameTurns) {
+    const { square, player } = turn;
+    const { row, col } = square;
+
+    gameBoard[row][col] = player;
+  }
+  return gameBoard;
+}
+
+function App() {
+
+  const [players, setPlayers] = useState({ PLAYERS })
+  const [gameTurns, setGameTurns] = useState([]);
+
+  const activePlayer = deriveActivePlayer(gameTurns);
+  const gameBoard = deriveGameBoard(gameTurns);
+  const winner = deriveWinner(gameBoard, players);
 
   const hasDrawn = gameTurns.length === 9 && !winner;
-
 
   function handleSelectSquare(rowIndex, colIndex) {
 
