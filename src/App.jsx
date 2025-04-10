@@ -17,6 +17,7 @@ import Player from './components/Player';
 import GameBoard from './components/GameBoard';
 import Log from './components/Log';
 import { WINNING_COMBINATIONS } from './winning-combinations.js';
+import GameOver from './components/GameOver.jsx';
 
 
 function deriveActivePlayer(gameTurns) {
@@ -82,7 +83,7 @@ function App() {
             <Player initialName={PLAYERS.X} symbol='X' isActive={activePlayer === 'X'} />
             <Player initialName={PLAYERS.O} symbol='O' isActive={activePlayer === 'O'} />
           </ol>
-          {winner && <p> Winner: {winner}</p>}
+          {winner && <GameOver winner={winner} />}
           <GameBoard
             onSelectSquare={handleSelectSquare}
             board={gameBoard} />
