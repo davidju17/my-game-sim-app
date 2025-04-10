@@ -275,6 +275,18 @@ ol {
   box-shadow: 0 0 20px rgba(255, 187, 0, 0.8);
 }
 
+@keyframes slide-in-from-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-30%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
 @keyframes pulse {
   0% {
     border-color: #f03d06;
