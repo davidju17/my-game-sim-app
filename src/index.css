@@ -302,6 +302,18 @@ ol {
   }
 }
 
+@keyframes pulse-text {
+  0% {
+    color: #e1dec7;
+  }
+  50% {
+    color: #9f9d83;
+  }
+  100% {
+    color: #e1dec7;
+  }
+}
+
 /* "Game Over"animation */
 @keyframes pop-in {
   0% {
